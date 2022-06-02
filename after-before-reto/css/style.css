@@ -1,0 +1,47 @@
+:root{
+  --rojo: hsl(0, 100%, 10%);
+  --blanco: white;
+  --amarillo: hsl(60, 100%, 50%);
+  --cyan: hsl(180, 100%, 50%);
+  --azul: hsl(240, 100%, 50%);
+  --magenta: hsl(300, 100%, 50%);
+  --size: 200px;
+  --sizePlus: calc(var(--size) + 30px);
+  --doubleSizePlus: calc(var(--sizePlus) * 2);
+  --sizePlusNegative: calc(var(--sizePlus) * -1);
+}
+
+*, *::after, *::before{
+  box-sizing: border-box;
+}
+
+body{
+  margin: 0;
+  background-color: var(--rojo);
+  color: var(--blanco)
+}
+
+.box{
+  position: relative;
+  background-color: var(--amarillo);
+  margin: 35vh auto;
+  box-shadow:
+  var(--sizePlus) var(--sizePlusNegative) var(--magenta),
+  var(--sizePlusNegative) var(--sizePlusNegative) var(--magenta);
+}
+
+.box, .box::after{
+  width: var(--size);
+  height: var(--size)
+}
+
+.box::after{
+  content: "";
+  background-color: var(--cyan);
+  border-radius: 50%;
+  position: absolute;
+  right: var(--sizePlus);
+  box-shadow:
+  var(--doubleSizePlus) 0 var(--cyan),
+  var(--sizePlus) var(--sizePlusNegative) var(--azul);
+}
